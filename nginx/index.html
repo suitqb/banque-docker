@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Banque — Accueil</title>
+  <style>body{font-family:system-ui;margin:2rem;max-width:780px} code{background:#f2f2f2;padding:2px 4px;border-radius:4px}</style>
+</head>
+<body>
+  <h1>Application Banque (Docker)</h1>
+  <p>Bienvenue ! Cette page est servie par <strong>nginx</strong>. L’API est disponible sous <code>/api</code>.</p>
+  <h2>Essais rapides (via <code>curl</code>)</h2>
+  <pre>
+# Créer un compte
+curl -X POST http://localhost:8080/api/comptes \
+  -H 'Content-Type: application/json' \
+  -d '{"nom":"Alice","solde_initial":100.00}'
+
+# Consulter le compte (id=1)
+curl http://localhost:8080/api/comptes/1
+
+# Déposer
+curl -X POST http://localhost:8080/api/comptes/1/depot \
+  -H 'Content-Type: application/json' \
+  -d '{"montant":50.00}'
+
+# Retirer
+curl -X POST http://localhost:8080/api/comptes/1/retrait \
+  -H 'Content-Type: application/json' \
+  -d '{"montant":20.00}'
+
+# Supprimer
+curl -X DELETE http://localhost:8080/api/comptes/1
+  </pre>
+</body>
+</html>
