@@ -137,7 +137,7 @@ curl -X DELETE http://localhost:8080/api/comptes/1
 Connexion au conteneur :
 
 ```bash
-docker exec -it banque-db psql -U banque -d banque
+docker exec -it <nom-container-db> psql -U banque -d banque
 ```
 
 Lister les comptes :
